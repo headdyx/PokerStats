@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { Storage } from '@ionic/storage';
+import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
 
 @Component({
   selector: 'page-home',
@@ -9,9 +9,9 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-  homeplayers: any;
+  homeplayers = [];
 
-  constructor(public navCtrl: NavController, public storage: Storage) {
+  constructor(public navCtrl: NavController, public storage: ServiceLocalStorage) {
 
     this.homeplayers = [
               {
@@ -40,43 +40,29 @@ export class HomePage {
               }
             ];
 
-           
+    //this.homeplayers = storage.players;      
+
+    console.log("Home Constructor called" + JSON.stringify(this.homeplayers));
 
   }
 
-  storePlayer() {
 
-    var object = { 
-      name:'Christian Grasmück', 
-      imagepath:'../../assets/pics/christian-grasmueck.jpg', 
-      lastgamedate: '01.05.2017',
-      wins:12,
-      points:1234
-    };
-
-    console.log("storePlayer  " + JSON.stringify(object));
-
-    this.storage.set('1', JSON.stringify(object) );
-  };
-
-  getPlayer() {
-      console.log("getter:   " + JSON.stringify(this.storage.get('1')));
+  newtest() {
     
-  };
-  
-  getPlayer2() {
-    this.storage.get('1').then(value => {
-      console.log("getter:   " + JSON.stringify(value));
-    });
-    
+    console.log("Home newtest function called" + JSON.stringify(this.storage.players));
+ 
   };
 
-  killPlayer() {
-    this.storage.remove('1');
-    this.storage.get('1').then(value => {
-      console.log("getter:   " + JSON.stringify(value));
-    });
-    
-  };
-
+  addAPlayer(){
+    var newplayer: [{
+      id: '4',
+      name: 'Blabla',
+      imagepath: 'assets/pics/Detzn.png',
+      lastgamedate: '30.10.2015',
+      wins: '11',
+      points: '15'
+    }];
+  console.log("Home addaplayer function called" + JSON.stringify(newplayer) + "  " + this.homeplayers);
+  this.homeplayers = this.homeplayers + newplayer;
+  }
 }

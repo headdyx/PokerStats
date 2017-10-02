@@ -15,15 +15,15 @@
             <ion-avatar item-start>
               <img src="{{player.imagepath}}">
             </ion-avatar>
-            <h2 (click)="storePlayer();">{{player.name}}</h2>
+            <h2>{{player.name}}</h2>
 
               <ion-grid>
                 <ion-row>
-                  <ion-col (click)="getPlayer();">Siege: {{player.wins}}</ion-col><ion-col (click)="getPlayer2();">Punkte: {{player.points}}</ion-col>
+                  <ion-col (click)="newtest();">Siege: {{player.wins}}</ion-col><ion-col (click)="addAPlayer();">Punkte: {{player.points}}</ion-col>
 
                 </ion-row>
               </ion-grid>
-            <ion-note item-end (click)="killPlayer();">Letztes Spiel<br />{{player.lastgamedate}}</ion-note>
+            <ion-note item-end>Letztes Spiel<br />{{player.lastgamedate}}</ion-note>
           </ion-item>
 
         </ion-list>
