@@ -1,0 +1,45 @@
+{
+    "players": [   
+        {
+        "id": 1,
+        "name": "Christian Grasmück",
+        "imagepath": "assets/pics/christian-grasmueck.jpg",
+        "lastgamedate": "01.05.2017",
+        "wins": 12,
+        "points": 165
+        },
+        {
+        "id": 2,
+        "name": "Peter Seiwert",
+        "imagepath": "assets/pics/pit.png",
+        "lastgamedate": "06.12.2016",
+        "wins": 10,
+        "points": 65
+        },
+        {
+        "id": 3,
+        "name": "Florian Detzen",
+        "imagepath": "assets/pics/Detzn.png",
+        "lastgamedate": "30.10.2015",
+        "wins": 11,
+        "points": 15
+        },
+        {
+        "id": 4,
+        "name": "Florian Detzen 2",
+        "imagepath": "assets/pics/Detzn.png",
+        "lastgamedate": "30.10.2015",
+        "wins": 11,
+        "points": 15
+        },
+        {
+        "id": 5,
+        "name": "Peter Seiwert 2",
+        "imagepath": "assets/pics/pit.png",
+        "lastgamedate": "06.12.2016",
+        "wins": 10,
+        "points": 65
+        }
+
+    ]
+}
