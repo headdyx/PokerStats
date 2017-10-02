@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Turniere
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let tournament of tournaments">
+      <ion-thumbnail item-start>
+        <img src="assets/pics/icons8-Cards Filled-100.png">
+      </ion-thumbnail>
+      <h2>{{tournament}}</h2>
+      <p>Datum - 12.12.2012</p>
+      <button ion-button clear item-end (click)="showTournamentAddDialog(tournament);">Ansehen</button>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button icon-left full (click)="showTournamentAddDialog(tournament);">
+    <span>Turnier hinzufügen</span>
+    <ion-icon name="add-circle"></ion-icon>
+  </button>
+
+</ion-content>

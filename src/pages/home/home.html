@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Poker Statistik</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Lisdorfer Pokerfreunde</h2>
+
+        <ion-list>
+          <ion-list-header>Spieler Statistik</ion-list-header>
+
+
+          <ion-item *ngFor="let player of homeplayers">
+            <ion-avatar item-start>
+              <img src="{{player.imagepath}}">
+            </ion-avatar>
+            <h2 (click)="storePlayer();">{{player.name}}</h2>
+
+              <ion-grid>
+                <ion-row>
+                  <ion-col (click)="getPlayer();">Siege: {{player.wins}}</ion-col><ion-col (click)="getPlayer2();">Punkte: {{player.points}}</ion-col>
+
+                </ion-row>
+              </ion-grid>
+            <ion-note item-end (click)="killPlayer();">Letztes Spiel<br />{{player.lastgamedate}}</ion-note>
+          </ion-item>
+
+        </ion-list>
+
+</ion-content>
