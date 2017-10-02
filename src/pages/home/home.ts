@@ -17,7 +17,7 @@ export class HomePage {
               {
                 id: '1',
                 name: 'Christian Grasmück',
-                imagepath: '../../assets/pics/christian-grasmueck.jpg',
+                imagepath: 'assets/pics/christian-grasmueck.jpg',
                 lastgamedate: '01.05.2017',
                 wins: '12',
                 points: '165'
@@ -25,7 +25,7 @@ export class HomePage {
               {
                 id: '2',
                 name: 'Peter Seiwert',
-                imagepath: '../../assets/pics/pit.png',
+                imagepath: 'assets/pics/pit.png',
                 lastgamedate: '06.12.2016',
                 wins: '10',
                 points: '65'
@@ -33,7 +33,7 @@ export class HomePage {
               {
                 id: '3',
                 name: 'Florian Detzen',
-                imagepath: '../../assets/pics/Detzn.png',
+                imagepath: 'assets/pics/Detzn.png',
                 lastgamedate: '30.10.2015',
                 wins: '11',
                 points: '15'
