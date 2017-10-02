@@ -5,10 +5,10 @@ import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'page-contact',
-  templateUrl: 'contact.html'
+  selector: 'page-players',
+  templateUrl: 'players.html'
 })
-export class ContactPage {
+export class PlayersPage {
 
   players: any;
 

@@ -7,10 +7,10 @@ import { ModalController, Platform, NavParams, ViewController } from 'ionic-angu
 
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  selector: 'page-tournaments',
+  templateUrl: 'tournaments.html'
 })
-export class AboutPage {
+export class TournamentsPage {
 
   tournaments: any;
 
