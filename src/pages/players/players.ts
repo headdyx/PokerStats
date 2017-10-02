@@ -43,7 +43,7 @@ export class PlayersPage {
               }
             ];
 
-
+    console.log("PlayersPage Constructor called");
 
   }
 

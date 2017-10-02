@@ -41,7 +41,7 @@ export class HomePage {
             ];
 
     //this.homeplayers = storage.players;      
-
+    console.log("HomePage Constructor called");        
     console.log("Home Constructor called" + JSON.stringify(this.homeplayers));
 
   }
@@ -63,6 +63,6 @@ export class HomePage {
       points: '15'
     }];
   console.log("Home addaplayer function called" + JSON.stringify(newplayer) + "  " + this.homeplayers);
-  this.homeplayers = this.homeplayers + newplayer;
+  
   }
 }

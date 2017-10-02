@@ -27,7 +27,8 @@ export class TournamentsPage {
                 'Spiel s',
                 'Spiel sgd'
 
-            ];
+    ];
+    console.log("TournamentsPage Constructor called");
   }
 
 showTournamentAddDialog(tournament){
