@@ -5,8 +5,10 @@ import { HttpClient } from '@angular/common/http';
 import { Players } from '../shared/SelectionPlayers';
 
 @Component({
-
+  selector: 'servicelocalstorage',
+  template: ''
 })
+
 export class ServiceLocalStorage {
 
   players: Players;
@@ -14,13 +16,22 @@ export class ServiceLocalStorage {
   constructor(public storage: Storage, private http: HttpClient) {
 
 
-    this.http.get('assets/json/players.json').subscribe(data => {
+    this.http.get('assets/json/players.json').subscribe((data) => {
 
-        //Getting JSON key (players) value (array) pair from the data
+        // Getting JSON key (players) value (array) pair from the data
         this.players = data['players'];
-        console.log("ServiceLocalStorage Constructor:  " + JSON.stringify(this.players));
-    });
 
+        // Setting the array into the key players of storage
+        storage.set('players', JSON.stringify(this.players));
+
+        // getting and the object out of the storage, only possible via then or subscribe
+        // because of the async data collection with http
+        storage.get('players').then((val) => {
+          console.log("ServiceLocalStorage Constructor in Observable:  " + val);;
+        });
+        
+    });
+    
   }
 
   removeItem(id) {

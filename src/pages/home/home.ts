@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
+import { Players } from '../../shared/SelectionPlayers';
+import { Player } from '../../shared/ModelPlayer';
 
 @Component({
   selector: 'page-home',
@@ -9,60 +11,30 @@ import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
 })
 export class HomePage {
 
-  homeplayers = [];
+  homeplayers: Players;
 
-  constructor(public navCtrl: NavController, public storage: ServiceLocalStorage) {
-
-    this.homeplayers = [
-              {
-                id: '1',
-                name: 'Christian Grasmück',
-                imagepath: 'assets/pics/christian-grasmueck.jpg',
-                lastgamedate: '01.05.2017',
-                wins: '12',
-                points: '165'
-              },
-              {
-                id: '2',
-                name: 'Peter Seiwert',
-                imagepath: 'assets/pics/pit.png',
-                lastgamedate: '06.12.2016',
-                wins: '10',
-                points: '65'
-              },
-              {
-                id: '3',
-                name: 'Florian Detzen',
-                imagepath: 'assets/pics/Detzn.png',
-                lastgamedate: '30.10.2015',
-                wins: '11',
-                points: '15'
-              }
-            ];
-
-    //this.homeplayers = storage.players;      
+  constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage) {
+   
     console.log("HomePage Constructor called");        
-    console.log("Home Constructor called" + JSON.stringify(this.homeplayers));
+
+    storageservice.storage.get('players').then((val) => {
+      console.log("ServiceLocalStorage Constructor in Home Page:  " + val);;
+    });
+
+    storageservice.storage.get('players').then((val) => {
+      this.homeplayers = JSON.parse(val);
+    });
 
   }
 
 
-  newtest() {
-    
-    console.log("Home newtest function called" + JSON.stringify(this.storage.players));
- 
-  };
-
+  // adds a player object to the homeplayers set via push array function
   addAPlayer(){
-    var newplayer: [{
-      id: '4',
-      name: 'Blabla',
-      imagepath: 'assets/pics/Detzn.png',
-      lastgamedate: '30.10.2015',
-      wins: '11',
-      points: '15'
-    }];
-  console.log("Home addaplayer function called" + JSON.stringify(newplayer) + "  " + this.homeplayers);
+    let newplayer = new Player(9, "Blabla Mensch", "assets/pics/Detzn.png", "30.10.2015", 11, 546);
+
+    this.homeplayers.addItem(newplayer);
+
+    console.log("Home addaplayer function called" + JSON.stringify(newplayer) + "  " + this.homeplayers);
   
   }
 }

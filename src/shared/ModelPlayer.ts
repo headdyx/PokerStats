@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-
+    selector: 'modelplayers',
+    template: ''
 })
+
 export class Player {
 
   constructor(
@@ -13,7 +15,7 @@ export class Player {
         public wins: number,
         public points: number
   ) {
-    console.log("Player constructed:");
+
     console.log("Player constructed:"
         + this.id
         + this.name

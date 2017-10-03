@@ -12,9 +12,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { IonicStorageModule } from '@ionic/storage';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
+import { Player } from '../shared/ModelPlayer';
+import { Players } from '../shared/SelectionPlayers';
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
     TournamentsPage,
     PlayersPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ServiceLocalStorage,
+    Players,
+    Player
   ],
   imports: [
     BrowserModule,

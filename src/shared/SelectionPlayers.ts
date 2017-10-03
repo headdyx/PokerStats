@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { Player } from '../shared/ModelPlayer';
 
 @Component({
+    selector: 'selectionplayers',
+    template: ''
+  })
 
-})
 export class Players {
 
   constructor(public players: Player[]) {
@@ -12,16 +14,16 @@ export class Players {
   };
 
 
-  addItem(player: Player){
-    this.players.push(player);
-  }
+//  addItem(player: Player){
+//    this.players.push(player);
+//  }
 
-  removeItem(id){
-      for(var i = 0; i < this.players.length; i++) {
-          if(this.players[i] == id){
-              this.players.splice(i, 1);
-          }
-      }
-  }
+//  removeItem(id){
+//      for(var i = 0; i < this.players.length; i++) {
+//          if(this.players[i] == id){
+//             this.players.splice(i, 1);
+//          }
+//      }
+//  }
 
 }

@@ -4,7 +4,6 @@ import { AlertController } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 
-import { LocalStorage } from '../../shared/localstorage';
 
 @Component({
   selector: 'page-players',
