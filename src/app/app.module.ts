@@ -14,10 +14,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
+
 import { Player } from '../shared/ModelPlayer';
 import { Players } from '../shared/SelectionPlayers';
-
+import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
 
 @NgModule({
   declarations: [
@@ -26,9 +26,8 @@ import { Players } from '../shared/SelectionPlayers';
     PlayersPage,
     HomePage,
     TabsPage,
-    ServiceLocalStorage,
     Players,
-    Player
+    ServiceLocalStorage
   ],
   imports: [
     BrowserModule,

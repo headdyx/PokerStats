@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
-@Component({
-    selector: 'modelplayers',
-    template: ''
-})
+//@Component({
+//    selector: 'modelplayers',
+//    template: ''
+//})
+
+@Injectable()
 
 export class Player {
 
