@@ -1,10 +1,12 @@
-import { Component, Inject, forwardRef } from '@angular/core';
+import { Component, Inject, forwardRef, Injectable } from '@angular/core';
 import { Player } from '../shared/ModelPlayer';
 
-@Component({
-    selector: 'selectionplayers',
-    template: ''
-  })
+//@Component({
+//    selector: 'selectionplayers',
+//    template: ''
+//  })
+
+@Injectable()
 
 export class Players {
 

@@ -15,8 +15,6 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
 
-import { Player } from '../shared/ModelPlayer';
-import { Players } from '../shared/SelectionPlayers';
 import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
 
 @NgModule({
@@ -26,7 +24,6 @@ import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
     PlayersPage,
     HomePage,
     TabsPage,
-    Players,
     ServiceLocalStorage
   ],
   imports: [
