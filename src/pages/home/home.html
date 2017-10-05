@@ -5,10 +5,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Lisdorfer Pokerfreunde</h2>
+  <h2 (click)="addAPlayer();">Spieler Statistik</h2>
 
         <ion-list>
-          <ion-list-header (click)="addAPlayer();">Spieler Statistik</ion-list-header>
 
 
           <ion-item *ngFor="let player of homeplayers">

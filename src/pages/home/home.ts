@@ -11,7 +11,7 @@ import { Player } from '../../shared/ModelPlayer';
 })
 export class HomePage {
 
-  homeplayers: Players;
+  public homeplayers: Player[] = [];
 
   constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage) {
    
@@ -32,9 +32,13 @@ export class HomePage {
   addAPlayer(){
     let newplayer = new Player(9, "Blabla Mensch", "assets/pics/Detzn.png", "30.10.2015", 11, 546);
 
-    this.homeplayers.addItem(newplayer);
-
-    console.log("Home addaplayer function called" + JSON.stringify(newplayer) + "  " + this.homeplayers);
+    console.log("AddAPlayer new Player:  " + JSON.stringify(newplayer));
+    
+    //console.log("AddAPlayer homeplayer array lenght:  " + this.homeplayers.players.length);
+    this.homeplayers.push(newplayer); 
+    // this.homeplayers.players.push(newplayer);
+   
+    console.log("Home addaplayer function called" + JSON.stringify(newplayer));
   
   }
 }

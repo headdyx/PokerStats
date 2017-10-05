@@ -1,17 +1,14 @@
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 
 import { Players } from '../shared/SelectionPlayers';
 
-@Component({
-  selector: 'servicelocalstorage',
-  template: ''
-})
+@Injectable()
 
 export class ServiceLocalStorage {
 
-  players: Players;
+  public players: Players;
 
   constructor(public storage: Storage, private http: HttpClient) {
 

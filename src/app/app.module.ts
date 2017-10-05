@@ -23,8 +23,7 @@ import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
     TournamentsPage,
     PlayersPage,
     HomePage,
-    TabsPage,
-    ServiceLocalStorage
+    TabsPage
   ],
   imports: [
     BrowserModule,

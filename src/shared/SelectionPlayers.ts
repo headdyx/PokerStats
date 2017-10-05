@@ -11,10 +11,13 @@ import { Player } from '../shared/ModelPlayer';
 export class Players {
 
 
-  players: Player[];
+  //players: Player[] = [] ;
+
+  public players: Player[] = [];
 
   constructor(@Inject(forwardRef(() => Player)) arrayofplayers: Player[]) {
     console.log("Player constructed:");
+    
     this.players = arrayofplayers;
   };
 
@@ -31,8 +34,9 @@ export class Players {
       }
   }
 
-  addItem(newplayer){
-    console.log("test");
+  addItem(newplayer: Player){
+    this.players.push(newplayer);
+    console.log("Players.addItem called with " + JSON.stringify(newplayer));
 
   }
 }
