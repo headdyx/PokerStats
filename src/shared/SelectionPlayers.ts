@@ -1,30 +1,20 @@
-import { Component, Inject, forwardRef, Injectable } from '@angular/core';
+import { Inject, forwardRef, Injectable } from '@angular/core';
 import { Player } from '../shared/ModelPlayer';
 
-//@Component({
-//    selector: 'selectionplayers',
-//    template: ''
-//  })
+
 
 @Injectable()
 
 export class Players {
 
-
-  //players: Player[] = [] ;
-
   public players: Player[] = [];
 
   constructor(@Inject(forwardRef(() => Player)) arrayofplayers: Player[]) {
-    console.log("Player constructed:");
+    console.log("Player Array constructed");
     
     this.players = arrayofplayers;
   };
 
-
-//  addItem(player: Player){
-//    this.players.push(player);
-//  }
 
   removeItem(id){
       for(var i = 0; i < this.players.length; i++) {

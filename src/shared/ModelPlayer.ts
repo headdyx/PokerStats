@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
 
-//@Component({
-//    selector: 'modelplayers',
-//    template: ''
-//})
 
 @Injectable()
 
@@ -18,7 +14,7 @@ export class Player {
         public points: number
   ) {
 
-    console.log("Player constructed:"
+    console.log("ModelPlayer constructed:"
         + this.id
         + this.name
         + this.imagepath
