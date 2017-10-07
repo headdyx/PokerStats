@@ -15,7 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
-
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ServiceLocalStorage
+    ServiceLocalStorage,
+    Camera
   ]
 })
 export class AppModule {
