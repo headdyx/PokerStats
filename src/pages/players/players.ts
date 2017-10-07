@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, Events } from 'ionic-angular';
 
 //import { Storage } from '@ionic/storage';
 import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
@@ -16,13 +16,19 @@ export class PlayersPage {
   playersPagePlayers: any;
 
   constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage,
-     public modalCtrl: ModalController) {
+     public modalCtrl: ModalController, public events: Events) {
 
     console.log("PlayersPage Constructor called");
 
     storageservice.storage.get('players').then((val) => {
       console.log("ServiceLocalStorage Constructor in Players Page:  " + val);
       this.playersPagePlayers = JSON.parse(val);
+    });
+
+    //EVENT to refresh the palyer array on changes
+    events.subscribe('players:update', (playersarray) => {
+      this.playersPagePlayers = playersarray;
+      console.log("EVENT players:update SUBSCRIBE HomePage");
     });
 
   }
@@ -37,11 +43,14 @@ export class PlayersPage {
       if (data != ''){
         let newPlayer = new Player(10,data,'','',0,0);
         this.storageservice.addPlayer(newPlayer);
-        this.playersPagePlayers.push(newPlayer);
       }
     });
     modal.present();
   }
 
+  removePlayer(playerId): void{
+    console.log("RemovePlayer sends ID: " + playerId);
+    this.storageservice.removePlayer(playerId);
+  }
 
 }

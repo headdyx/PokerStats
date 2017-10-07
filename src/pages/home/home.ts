@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
-import { Players } from '../../shared/SelectionPlayers';
+//import { Players } from '../../shared/SelectionPlayers';
 import { Player } from '../../shared/ModelPlayer';
+
+import { Events } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -13,8 +15,14 @@ export class HomePage {
 
   public homePagePlayers: Player[] = new Array<Player>();
   
-  constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage) {
-    console.log("HomePage Constructor called");        
+  constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage, 
+    public events: Events) {
+    console.log("HomePage Constructor called");
+    
+    events.subscribe('players:update', (playersarray) => {
+      this.homePagePlayers = playersarray;
+      console.log("EVENT players:update SUBSCRIBE HomePage");
+    });
   }
 
   ngOnInit(){
@@ -30,7 +38,17 @@ export class HomePage {
         
       }
     });
+    
   };
+
+
+  ngAfterViewInit(){
+    this.events.publish('players:update', this.storageservice.getPlayers());
+  }
+
+  ngAfterContentInit(){
+    this.events.publish('players:update', this.storageservice.getPlayers());
+  }
 
   addAPlayer(): void{
     let newplayer = new Player(9, "Blabla Mensch", "assets/pics/Detzn.png", "30.10.2015", 11, 546);

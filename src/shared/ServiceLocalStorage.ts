@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
-
+import { Events } from 'ionic-angular';
 //import { Players } from '../shared/SelectionPlayers';
 import { Player } from '../shared/ModelPlayer';
 
@@ -12,7 +12,7 @@ export class ServiceLocalStorage {
 
   public players = new Array<Player>();
 
-  constructor(public storage: Storage, private http: HttpClient) {
+  constructor(public storage: Storage, private http: HttpClient, public events: Events) {
 
   }
 
@@ -32,7 +32,7 @@ export class ServiceLocalStorage {
 
   clearStorage(){
     this.storage.clear();
-    console.log("ServiceLocalStorage Clear Function called");
+    console.log("!!!!!!!!! ServiceLocalStorage Clear Function called !!!!!!!!!!!");
   }
 
   getPlayers(): Player[]{
@@ -48,18 +48,36 @@ export class ServiceLocalStorage {
     console.log("ServiceLocalStorage AddPlayer Function called");
     
     this.storage.get('players').then((val) => {
-      let playersarray: Player[]
-      console.log("---> GET old Players: " + val);
-      playersarray = JSON.parse(val);
+      let playersarray: Player[] = JSON.parse(val);
+      console.log("---> ADD: GET old Players: " + val);
+
       playersarray.push(player);
       this.storage.set('players', JSON.stringify(playersarray));
-      console.log("---> SET new Players: " + JSON.stringify(playersarray));
+      console.log("---> ADD: SET new Players: " + JSON.stringify(playersarray));
+
+      this.events.publish('players:update', playersarray);
     });
     
   }
 
-  removePlayer(id) {
-    this.players.removeItem(id);
-    console.log("ServiceLocalStorage Remove Function called on " + id);
+  removePlayer(playerId) {
+    this.storage.get('players').then((val) => {
+      let playersarray: Player[] = JSON.parse(val);
+      console.log("---> REMOVE: GET old Players: " + val);
+
+      for(var i = 0; i < playersarray.length; i++) {
+        if(playersarray[i].id == playerId){
+          playersarray.splice(i, 1);
+        }else{
+          console.log("---> REMOVE: no Player found for ID: " + playerId);
+        }
+      }
+
+      this.storage.set('players', JSON.stringify(playersarray));
+      console.log("---> REMOVE: SET new Players: " + JSON.stringify(playersarray));
+
+      this.events.publish('players:update', playersarray);
+    });
+    console.log("ServiceLocalStorage Remove Function called on ID: " + playerId);
   }
 }

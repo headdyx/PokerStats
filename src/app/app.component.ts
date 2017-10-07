@@ -5,7 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
-import { Players } from '../shared/SelectionPlayers';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +12,6 @@ import { Players } from '../shared/SelectionPlayers';
 export class MyApp {
   rootPage:any = TabsPage;
 
-  players: Players;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

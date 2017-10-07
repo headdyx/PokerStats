@@ -19,7 +19,7 @@
               <ion-note item-end>{{player.lastgamedate}}</ion-note>
             </ion-item>
             <ion-item-options side="right">
-              <button ion-button color="danger">
+              <button ion-button color="danger" (click)="removePlayer(player.id)">
                 <ion-icon name="remove-circle"></ion-icon>
                 Löschen
               </button>
