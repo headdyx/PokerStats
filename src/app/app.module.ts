@@ -16,6 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
 
+
 @NgModule({
   declarations: [
     MyApp,

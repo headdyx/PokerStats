@@ -1,16 +1,16 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Poker Statistik</ion-title>
+    <ion-title (click)="clearStorage()">Poker Statistik</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2 (click)="addAPlayer();">Spieler Statistik</h2>
+  <h2 (click)="addAPlayer()">Spieler Statistik</h2>
 
         <ion-list>
 
 
-          <ion-item *ngFor="let player of homeplayers">
+          <ion-item *ngFor="let player of homePagePlayers">
             <ion-avatar item-start>
               <img src="{{player.imagepath}}">
             </ion-avatar>
@@ -18,7 +18,7 @@
 
               <ion-grid>
                 <ion-row>
-                  <ion-col (click)="addAPlayer2();">Siege: {{player.wins}}</ion-col><ion-col (click)="addAPlayer();">Punkte: {{player.points}}</ion-col>
+                  <ion-col>Siege: {{player.wins}}</ion-col><ion-col>Punkte: {{player.points}}</ion-col>
 
                 </ion-row>
               </ion-grid>

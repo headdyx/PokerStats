@@ -1,13 +1,11 @@
 import { Inject, forwardRef, Injectable } from '@angular/core';
 import { Player } from '../shared/ModelPlayer';
 
-
-
 @Injectable()
 
 export class Players {
 
-  public players: Player[] = [];
+  public players: Player[] = new Array<Player>();
 
   constructor(@Inject(forwardRef(() => Player)) arrayofplayers: Player[]) {
     console.log("Player Array constructed");

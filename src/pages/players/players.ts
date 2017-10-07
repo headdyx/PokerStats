@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
-import { Storage } from '@ionic/storage';
+//import { Storage } from '@ionic/storage';
+import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
 
 import { AddPlayerModal } from '../addplayermodal/addplayermodal';
 import { Player } from '../../shared/ModelPlayer';
@@ -12,16 +13,16 @@ import { Player } from '../../shared/ModelPlayer';
 })
 export class PlayersPage {
 
-  players: any;
+  playersPagePlayers: any;
 
-  constructor(public navCtrl: NavController,
-    public storage: Storage, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage,
+     public modalCtrl: ModalController) {
 
     console.log("PlayersPage Constructor called");
 
-    storage.get('players').then((val) => {
+    storageservice.storage.get('players').then((val) => {
       console.log("ServiceLocalStorage Constructor in Players Page:  " + val);
-      this.players = JSON.parse(val);
+      this.playersPagePlayers = JSON.parse(val);
     });
 
   }
@@ -35,7 +36,8 @@ export class PlayersPage {
 
       if (data != ''){
         let newPlayer = new Player(10,data,'','',0,0);
-        this.players.push(newPlayer);
+        this.storageservice.addPlayer(newPlayer);
+        this.playersPagePlayers.push(newPlayer);
       }
     });
     modal.present();

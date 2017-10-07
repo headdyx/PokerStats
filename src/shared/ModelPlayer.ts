@@ -5,16 +5,11 @@ import { Injectable } from '@angular/core';
 
 export class Player {
 
-  constructor(
-        public id: number,
-        public name: string,
-        public imagepath: string,
-        public lastgamedate: string,
-        public wins: number,
-        public points: number
-  ) {
 
-    console.log("ModelPlayer constructed:"
+  constructor(public id: number, public name: string, public imagepath: string,
+    public lastgamedate: string, public wins: number, public points: number) {
+
+    console.log("ModelPlayer constructed: "
         + this.id
         + this.name
         + this.imagepath
