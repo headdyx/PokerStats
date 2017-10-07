@@ -78,6 +78,18 @@ export class ServiceLocalStorage {
 
       this.events.publish('players:update', playersarray);
     });
-    console.log("ServiceLocalStorage Remove Function called on ID: " + playerId);
+    console.log("ServiceLocalStorage removePlayer Function called on ID: " + playerId);
   }
+
+  lengthOfPlayerArray(): number {
+    let length: number;
+    this.storage.get('players').then((val) => {
+      let playersarray: Player[] = JSON.parse(val);
+      length = playersarray.length;
+    });
+    
+    console.log("ServiceLocalStorage lengthOfPlayerArray Function called with return: " + length);
+    return length;
+  }
+
 }

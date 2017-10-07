@@ -28,7 +28,7 @@ export class PlayersPage {
     //EVENT to refresh the palyer array on changes
     events.subscribe('players:update', (playersarray) => {
       this.playersPagePlayers = playersarray;
-      console.log("EVENT players:update SUBSCRIBE HomePage");
+      console.log("EVENT players:update SUBSCRIBE->Listener PlayersPage");
     });
 
   }
@@ -36,14 +36,16 @@ export class PlayersPage {
 
   addPlayerModal(): void{
     let modal = this.modalCtrl.create(AddPlayerModal);
-    
+    let arraylength: number = this.storageservice.lengthOfPlayerArray();
+
     modal.onDidDismiss((data) => {
       console.log("AddPlayer Modal sends: " + data);
 
-      if (data != ''){
-        let newPlayer = new Player(10,data,'','',0,0);
+      if (data != null){
+        
+        let newPlayer = new Player(arraylength + 1, data, '', '' ,0 , 0);
         this.storageservice.addPlayer(newPlayer);
-      }
+      };
     });
     modal.present();
   }

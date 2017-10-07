@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
+import { NavController, Events } from 'ionic-angular';
 import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
-//import { Players } from '../../shared/SelectionPlayers';
 import { Player } from '../../shared/ModelPlayer';
-
-import { Events } from 'ionic-angular';
+//import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
@@ -14,15 +11,17 @@ import { Events } from 'ionic-angular';
 export class HomePage {
 
   public homePagePlayers: Player[] = new Array<Player>();
+  //public hpPlayersOb$ = new Observable<Player[]>();
   
   constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage, 
     public events: Events) {
-    console.log("HomePage Constructor called");
     
-    events.subscribe('players:update', (playersarray) => {
-      this.homePagePlayers = playersarray;
-      console.log("EVENT players:update SUBSCRIBE HomePage");
-    });
+      console.log("HomePage Constructor called");
+    
+      events.subscribe('players:update', (playersarray) => {
+        this.homePagePlayers = playersarray;
+        console.log("EVENT players:update SUBSCRIBE->Listener HomePage");
+      });
   }
 
   ngOnInit(){
@@ -34,27 +33,10 @@ export class HomePage {
       }else{
         console.log("ServiceLocalStorage is empty in HomePage");
         this.storageservice.getJsonData();
-        this.homePagePlayers = this.storageservice.getPlayers();
-        
+        this.homePagePlayers = this.storageservice.getPlayers(); 
       }
     });
-    
   };
-
-
-  ngAfterViewInit(){
-    this.events.publish('players:update', this.storageservice.getPlayers());
-  }
-
-  ngAfterContentInit(){
-    this.events.publish('players:update', this.storageservice.getPlayers());
-  }
-
-  addAPlayer(): void{
-    let newplayer = new Player(9, "Blabla Mensch", "assets/pics/Detzn.png", "30.10.2015", 11, 546);
-    this.homePagePlayers.push(newplayer); 
-    console.log("Home addaplayer function called" + JSON.stringify(newplayer));
-  }
 
   clearStorage(){
     console.log("Homepage called Storage clearing!!!!!");
