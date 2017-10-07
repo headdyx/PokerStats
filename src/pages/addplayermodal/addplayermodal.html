@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Mitspieler hinzufügen</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+
+    <ion-list>
+        
+          <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="nameInputValue"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-icon name="person" class="placeholder"></ion-icon>
+            <button ion-button icon-left full (click)="takePicture();">       
+                <ion-icon name="camera"></ion-icon>
+                Kamera
+            </button>
+          </ion-item>
+        
+    </ion-list>
+
+
+    <button ion-button icon-left full (click)="saveNewPlayer();">       
+        <ion-icon name="person-add"></ion-icon>
+        Mitspieler speichern
+    </button>
+  </ion-content>
+  

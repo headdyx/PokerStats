@@ -15,8 +15,8 @@
               <ion-avatar item-start>
                 <img src="{{player.imagepath}}">
               </ion-avatar>
-              <h2 (click)="getPlayer2();">{{player.name}}</h2>
-              <ion-note item-end (click)="getPlayer3();">{{player.lastgamedate}}</ion-note>
+              <h2>{{player.name}}</h2>
+              <ion-note item-end>{{player.lastgamedate}}</ion-note>
             </ion-item>
             <ion-item-options side="right">
               <button ion-button color="danger">
@@ -27,12 +27,9 @@
           </ion-item-sliding>
         </ion-list>
 
-        <button ion-button icon-left full (click)="doAlert();">
-          
+        <button ion-button icon-left full (click)="addPlayerModal();">        
           <ion-icon name="person-add"></ion-icon>
-
           Mitspieler hinzufügen
-
         </button>
 
 </ion-content>

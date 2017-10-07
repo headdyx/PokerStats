@@ -7,6 +7,7 @@ import { TournamentsPage } from '../pages/tournaments/tournaments';
 import { PlayersPage } from '../pages/players/players';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { AddPlayerModal } from '../pages/addplayermodal/addplayermodal';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +24,8 @@ import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
     TournamentsPage,
     PlayersPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    AddPlayerModal
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { ServiceLocalStorage } from '../shared/ServiceLocalStorage';
     TournamentsPage,
     PlayersPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    AddPlayerModal
   ],
   providers: [
     StatusBar,
