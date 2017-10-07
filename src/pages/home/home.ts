@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
-import { Players } from '../../shared/SelectionPlayers';
+//import { Players } from '../../shared/SelectionPlayers';
 import { Player } from '../../shared/ModelPlayer';
 
 @Component({
@@ -12,20 +12,27 @@ import { Player } from '../../shared/ModelPlayer';
 export class HomePage {
 
   public homeplayers: Player[] = [];
-  public homeplayers2: Players = new Players(new Array<Player>());
+  //public homeplayers2: Players = new Players(new Array<Player>());
 
   constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage) {
    
     console.log("HomePage Constructor called");        
 
-    storageservice.storage.get('players').then((val) => {
+    /*storageservice.storage.get('players').then((val) => {
       console.log("ServiceLocalStorage Constructor in Home Page:  " + val);
       this.homeplayers = JSON.parse(val);
-    });
+    });*/
 
   }
 
+  ngOnInit(){
+    this.storageservice.storage.get('players').then((val) => {
+      console.log("ServiceLocalStorage in Home Page:  " + val);
+      this.homeplayers = JSON.parse(val);
+    });
+  };
 
+  
   // adds a player object to the homeplayers set via push array function
   addAPlayer(): void{
     let newplayer = new Player(9, "Blabla Mensch", "assets/pics/Detzn.png", "30.10.2015", 11, 546);
@@ -40,7 +47,7 @@ export class HomePage {
   
   }
 
-  addAPlayer2(): void{
+  /*addAPlayer2(): void{
     let newplayer = new Player(9, "Blabla Mensch", "assets/pics/Detzn.png", "30.10.2015", 11, 546);
 
     console.log("AddAPlayer new Player:  " + JSON.stringify(newplayer));
@@ -51,6 +58,6 @@ export class HomePage {
    
     console.log("Home addaplayer function called" + JSON.stringify(newplayer));
   
-  }
+  }*/
 
 }

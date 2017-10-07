@@ -14,10 +14,6 @@ export class ServiceLocalStorage {
 
   constructor(public storage: Storage, private http: HttpClient) {
 
-  }
-
-  getJsonData(): void{
-
     this.http.get('assets/json/players.json').subscribe((data) => {
       
               // Getting JSON key (players) value (array) pair from the data
@@ -33,6 +29,13 @@ export class ServiceLocalStorage {
               });
               
     });
+
+
+  }
+
+  getJsonData(): void{
+
+
 
   }
 

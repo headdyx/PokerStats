@@ -23,22 +23,6 @@
         "lastgamedate": "30.10.2015",
         "wins": 11,
         "points": 15
-        },
-        {
-        "id": 4,
-        "name": "Florian Detzen 2",
-        "imagepath": "assets/pics/Detzn.png",
-        "lastgamedate": "30.10.2015",
-        "wins": 11,
-        "points": 15
-        },
-        {
-        "id": 5,
-        "name": "Peter Seiwert 2",
-        "imagepath": "assets/pics/pit.png",
-        "lastgamedate": "06.12.2016",
-        "wins": 10,
-        "points": 65
         }
 
     ]
