@@ -43,7 +43,7 @@ export class PlayersPage {
 
       if (data != null){
         
-        let newPlayer = new Player(arraylength + 1, data, '', '' ,0 , 0);
+        let newPlayer = new Player(arraylength + 1, data.name, data.picture, '' ,0 , 0);
         this.storageservice.addPlayer(newPlayer);
       };
     });

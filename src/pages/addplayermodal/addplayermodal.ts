@@ -13,7 +13,7 @@ export class AddPlayerModal {
   players: any;
 
   nameInputValue: String = '';
-  cameraInput: any;
+  cameraInput: String = '';
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController,
     public storage: Storage, private camera: Camera) {
@@ -25,14 +25,19 @@ export class AddPlayerModal {
  }
 
  saveNewPlayer(){
-    let data = this.nameInputValue;
+    let data = {name: this.nameInputValue, picture: this.cameraInput}
     this.viewCtrl.dismiss(data);
+    
  }
 
  takePicture(){
   const options: CameraOptions = {
-    quality: 100,
+    quality: 80,
     destinationType: this.camera.DestinationType.DATA_URL,
+    allowEdit: true,
+    targetWidth: 400,
+    targetHeight: 400,
+    correctOrientation: true,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
   }
@@ -40,8 +45,9 @@ export class AddPlayerModal {
     // imageData is either a base64 encoded string or a file URI
     // If it's base64:
     let base64Image = 'data:image/jpeg;base64,' + imageData;
+    this.cameraInput = base64Image;
    }, (err) => {
-     console.log("Some Camera Error");
+     console.log("CAMERA PLUGIN some camera error: " + err);
     // Handle error
    });
  }

@@ -7,12 +7,14 @@ export class Player {
 
 
   constructor(public id: number, public name: string, public imagepath: string,
-    public lastgamedate: string, public wins: number, public points: number) {
+    /*public imageBase64: string,*/ public lastgamedate: string, public wins: number,
+    public points: number) {
 
     console.log("ModelPlayer constructed: "
         + this.id
         + this.name
         + this.imagepath
+        //+ this.imageBase64
         + this.lastgamedate
         + this.wins
         + this.points
@@ -26,6 +28,9 @@ export class Player {
   changeImagepath(imagepath){
     this.imagepath = imagepath;
   }
+  /*changeImageBase64(imageBase64){
+    this.imageBase64 = imageBase64;
+  }*/
 
   changeLastgamedate(lastgamedate){
     this.lastgamedate = lastgamedate;
