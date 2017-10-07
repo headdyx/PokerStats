@@ -1,6 +1,13 @@
 addplayer-modal {
     .placeholder{
-        font-size: 10em;
         text-align: center;
+        display: block;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+    }
+    .camerabutton{
+        margin: auto;
+        display: block;
     }
    }

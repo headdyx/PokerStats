@@ -14,6 +14,7 @@ export class AddPlayerModal {
 
   nameInputValue: String = '';
   cameraInput: String = '';
+  personPicture = 'assets/pics/person.png';
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController,
     public storage: Storage, private camera: Camera) {
@@ -35,8 +36,8 @@ export class AddPlayerModal {
     quality: 80,
     destinationType: this.camera.DestinationType.DATA_URL,
     allowEdit: true,
-    targetWidth: 400,
-    targetHeight: 400,
+    targetWidth: 100,
+    targetHeight: 100,
     correctOrientation: true,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE
@@ -46,6 +47,7 @@ export class AddPlayerModal {
     // If it's base64:
     let base64Image = 'data:image/jpeg;base64,' + imageData;
     this.cameraInput = base64Image;
+    this.personPicture = base64Image;
    }, (err) => {
      console.log("CAMERA PLUGIN some camera error: " + err);
     // Handle error

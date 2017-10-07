@@ -20,10 +20,12 @@
           </ion-item>
         
           <ion-item>
-            <ion-icon name="person" class="placeholder"></ion-icon>
-            <button ion-button icon-left full (click)="takePicture();">       
+            <img src={{this.personPicture}} class="placeholder">
+          </ion-item>
+          <ion-item>
+            <button ion-button icon-left outline class="camerabutton" (click)="takePicture();">       
                 <ion-icon name="camera"></ion-icon>
-                Kamera
+                Bild mit Kamera aufnehmen
             </button>
           </ion-item>
         
