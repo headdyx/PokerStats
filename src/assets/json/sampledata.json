@@ -31,12 +31,14 @@
         {
             "id": 1,
             "name": "Turnier 1",
-            "gamedate" : "01.01.2018"
+            "gamedate" : "01.01.2018",
+            "location": ""
         },
         {
             "id": 2,
             "name": "Turnier 2",
-            "gamedate" : "01.01.2018"
+            "gamedate" : "01.01.2018",
+            "location": ""
         }
     ],
     "tournamentsLength" : 2
