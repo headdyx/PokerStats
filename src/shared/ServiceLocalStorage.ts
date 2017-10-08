@@ -10,24 +10,24 @@ import { Player } from '../shared/ModelPlayer';
 
 export class ServiceLocalStorage {
 
-  public players = new Array<Player>();
 
   constructor(public storage: Storage, private http: HttpClient, public events: Events) {
 
   }
 
   getJsonData(): void{
-    this.http.get('assets/json/players.json').subscribe((data) => {
+    this.http.get('assets/json/sampledata.json').subscribe((data) => {
       
-              // Getting JSON key (players) value (array) pair from the data
-              this.players = data['players'];
-              this.storage.set('players', JSON.stringify(this.players));
-              this.storage.get('players').then((val) => {
-                console.log("ServiceLocalStorage Constructor in Observable:  " + val);
-              });
+              // Getting JSON key (players) value (array) pair from the data             
+              this.storage.set('players', JSON.stringify(data['players']));
+              this.storage.set('playersLength', JSON.stringify(data['playersLength']));
+              this.storage.set('tournaments', JSON.stringify(data['tournaments']));
+              this.storage.set('tournamentsLength', JSON.stringify(data['tournamentsLength']));
+              console.log("ServiceLocalStorage getJsonData called:  " + JSON.stringify(data));
+              let playersarray: Player[] = data['players'];
+              this.events.publish('players:update', playersarray);
               
     });
-
   }
 
   clearStorage(){
@@ -38,7 +38,8 @@ export class ServiceLocalStorage {
   getPlayers(): Player[]{
     let player = new Array<Player>();
     this.storage.get('players').then((val) => {
-      console.log("ServiceLocalStorage getPlayers called with:  " + val);
+      
+      console.log("ServiceLocalStorage getPlayers returns:  " + val);
       player = JSON.parse(val);    
     });
     return player;
@@ -81,15 +82,16 @@ export class ServiceLocalStorage {
     console.log("ServiceLocalStorage removePlayer Function called on ID: " + playerId);
   }
 
-  lengthOfPlayerArray(): number {
+  lengthOfPlayerArray(): any {
     let length: number;
-    this.storage.get('players').then((val) => {
+    return this.storage.get('players').then((val) => {
       let playersarray: Player[] = JSON.parse(val);
       length = playersarray.length;
+      console.log("ServiceLocalStorage lengthOfPlayerArray Function called with return: " + length);
+      return length;
     });
     
-    console.log("ServiceLocalStorage lengthOfPlayerArray Function called with return: " + length);
-    return length;
+    
   }
 
 }

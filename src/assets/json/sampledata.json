@@ -1,0 +1,43 @@
+{
+    "players": [   
+        {
+            "id": 1,
+            "name": "Christian Grasmück",
+            "imagepath": "assets/pics/christian-grasmueck.jpg",
+            "lastgamedate": "01.05.2017",
+            "wins": 12,
+            "points": 165
+        },
+        {
+            "id": 2,
+            "name": "Peter Seiwert",
+            "imagepath": "assets/pics/pit.png",
+            "lastgamedate": "06.12.2016",
+            "wins": 10,
+            "points": 65
+        },
+        {
+            "id": 3,
+            "name": "Florian Detzen",
+            "imagepath": "assets/pics/Detzn.png",
+            "lastgamedate": "30.10.2015",
+            "wins": 11,
+            "points": 15
+        }
+
+    ],
+    "playersLength": 3,
+    "tournaments": [
+        {
+            "id": 1,
+            "name": "Turnier 1",
+            "gamedate" : "01.01.2018"
+        },
+        {
+            "id": 2,
+            "name": "Turnier 2",
+            "gamedate" : "01.01.2018"
+        }
+    ],
+    "tournamentsLength" : 2
+}

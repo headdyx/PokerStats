@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, Events } from 'ionic-angular';
 import { ServiceLocalStorage } from '../../shared/ServiceLocalStorage';
 import { Player } from '../../shared/ModelPlayer';
-//import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
@@ -11,8 +10,7 @@ import { Player } from '../../shared/ModelPlayer';
 export class HomePage {
 
   public homePagePlayers: Player[] = new Array<Player>();
-  //public hpPlayersOb$ = new Observable<Player[]>();
-  
+
   constructor(public navCtrl: NavController, public storageservice: ServiceLocalStorage, 
     public events: Events) {
     
@@ -33,7 +31,6 @@ export class HomePage {
       }else{
         console.log("ServiceLocalStorage is empty in HomePage");
         this.storageservice.getJsonData();
-        this.homePagePlayers = this.storageservice.getPlayers(); 
       }
     });
   };

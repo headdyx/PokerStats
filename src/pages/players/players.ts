@@ -36,16 +36,21 @@ export class PlayersPage {
 
   addPlayerModal(): void{
     let modal = this.modalCtrl.create(AddPlayerModal);
-    let arraylength: number = this.storageservice.lengthOfPlayerArray();
+    let arraylength: number = 0;
 
     modal.onDidDismiss((data) => {
       console.log("AddPlayer Modal sends: " + data);
 
-      if (data.name != ''){
-        console.log("AddPlayer modal data.name" + data.name);
-        let newPlayer = new Player(arraylength + 1, data.name, data.picture, '' ,0 , 0);
-        this.storageservice.addPlayer(newPlayer);
-      };console.log("AddPlayer modal data.name is empty");
+      this.storageservice.lengthOfPlayerArray().then(length => {
+        arraylength = length;
+        console.log("AddPlayer Modal got array length: " + arraylength);
+
+        if (data.name != ''){
+          console.log("AddPlayer modal data.name: " + data.name);
+          let newPlayer = new Player(arraylength + 1, data.name, data.picture, '' ,0 , 0);
+          this.storageservice.addPlayer(newPlayer);
+        };console.log("AddPlayer modal data.name is empty");
+      }) 
     });
     modal.present();
   }

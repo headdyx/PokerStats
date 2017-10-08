@@ -19,12 +19,6 @@ export class TournamentsPage {
                 'Spiel 1',
                 'Spiel 2',
                 'Spiel 3',
-                'Spiel 4',
-                'Spiel 5',
-                'Spiel sfsdg',
-                'Spiel sdg',
-                'Spiel sadgsdag',
-                'Spiel s',
                 'Spiel sgd'
 
     ];
