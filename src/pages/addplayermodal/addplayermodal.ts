@@ -26,7 +26,15 @@ export class AddPlayerModal {
  }
 
  saveNewPlayer(){
-    let data = {name: this.nameInputValue, picture: this.cameraInput}
+    let data;
+    if (this.cameraInput != ''){
+      data = {name: this.nameInputValue, picture: this.cameraInput}
+      console.log("MODAL: Savenewplayer with camerainput");
+     }else{
+      data = {name: this.nameInputValue, picture: this.personPicture}
+      console.log("MODAL: Savenewplayer with personpicture placeholder");
+    };
+    
     this.viewCtrl.dismiss(data);
     
  }
@@ -36,8 +44,8 @@ export class AddPlayerModal {
     quality: 80,
     destinationType: this.camera.DestinationType.DATA_URL,
     allowEdit: true,
-    targetWidth: 100,
-    targetHeight: 100,
+    targetWidth: 300,
+    targetHeight: 300,
     correctOrientation: true,
     encodingType: this.camera.EncodingType.JPEG,
     mediaType: this.camera.MediaType.PICTURE

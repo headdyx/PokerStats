@@ -41,11 +41,11 @@ export class PlayersPage {
     modal.onDidDismiss((data) => {
       console.log("AddPlayer Modal sends: " + data);
 
-      if (data != null){
-        
+      if (data.name != ''){
+        console.log("AddPlayer modal data.name" + data.name);
         let newPlayer = new Player(arraylength + 1, data.name, data.picture, '' ,0 , 0);
         this.storageservice.addPlayer(newPlayer);
-      };
+      };console.log("AddPlayer modal data.name is empty");
     });
     modal.present();
   }
